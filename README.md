@@ -27,7 +27,7 @@ GardePharm MG est une interface web légère pour rechercher des pharmacies de g
     └── leaflet/
 ```
 
-Leaflet est chargé localement depuis `node_modules/leaflet`. Aucun CDN JavaScript ou CSS externe n’est nécessaire pour l’application.
+Leaflet est chargé depuis le CDN officiel avec une vérification d’intégrité, afin que l’application fonctionne aussi sur GitHub Pages.
 
 ## Lancement local
 
