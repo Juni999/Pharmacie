@@ -1,0 +1,19 @@
+{
+  "name": "ItadyFanafody",
+  "short_name": "ItadyFanafody",
+  "description": "Trouvez une pharmacie à Antananarivo.",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f7f6",
+  "theme_color": "#102a35",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

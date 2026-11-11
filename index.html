@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="ItadyFanafody — trouvez une pharmacie de garde et vérifiez la disponibilité de vos médicaments à Antananarivo." />
+    <meta name="theme-color" content="#102a35" />
     <title>ItadyFanafody — Votre pharmacie à Tana</title>
+    <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="manifest.webmanifest" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -15,7 +18,9 @@
           <span class="brand-mark" aria-hidden="true">✚</span>
           <span><strong>Itady</strong><small>Fanafody</small></span>
         </a>
-        <div class="creator-chip"><span class="status-dot"></span> Développé par <strong>Lauren Juni</strong></div>
+        <div id="data-status" class="creator-chip data-status" role="status">
+          <span class="status-dot"></span><span>Chargement des données…</span>
+        </div>
       </div>
     </header>
 
@@ -36,17 +41,28 @@
           <button type="button" data-search="Amoxicilline">Amoxicilline</button>
           <button type="button" data-search="Analakely">Analakely</button>
         </div>
+        <div class="search-actions">
+          <button id="locate-user" class="location-button" type="button">⌖ Voir les pharmacies près de moi</button>
+          <span id="location-status" class="location-status" aria-live="polite">Votre position reste sur votre appareil.</span>
+        </div>
       </section>
 
       <section class="workspace container" aria-label="Pharmacies et carte">
         <div class="results-panel">
           <div class="section-heading">
             <div>
-              <p class="section-kicker">Disponibilité en temps réel</p>
+              <p class="section-kicker">Données déclarées par les pharmacies</p>
               <h2>Pharmacies à proximité <span id="result-count" class="count-pill">0</span></h2>
             </div>
             <button id="reset-search" class="text-button" type="button" hidden>Réinitialiser</button>
           </div>
+          <div class="filter-bar" aria-label="Filtrer les pharmacies">
+            <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Toutes</button>
+            <button class="filter-button" type="button" data-filter="guard" aria-pressed="false">De garde</button>
+            <button class="filter-button" type="button" data-filter="open" aria-pressed="false">Ouvertes</button>
+            <button class="filter-button" type="button" data-filter="stock" aria-pressed="false">Avec stock</button>
+          </div>
+          <p id="results-summary" class="results-summary" aria-live="polite"></p>
           <div id="pharmacy-list" class="pharmacy-list" aria-live="polite"></div>
         </div>
         <div class="map-panel">
@@ -64,8 +80,10 @@
         <p><strong>ItadyFanafody</strong> · L'information qui vous rapproche des soins.</p>
         <p>Créé avec soin par <strong>Lauren Juni</strong> <span aria-hidden="true">✦</span></p>
       </div>
+      <p class="container service-disclaimer">Les disponibilités sont déclaratives : appelez la pharmacie avant de vous déplacer. En cas d’urgence médicale, contactez les services d’urgence.</p>
     </footer>
 
+    <noscript><p class="noscript-message">Activez JavaScript pour rechercher une pharmacie.</p></noscript>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="app.js"></script>
   </body>
