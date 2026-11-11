@@ -99,3 +99,4 @@ node --check app.js
 - Back-office pour les pharmacies partenaires.
 - Mode hors-ligne avec cache des données essentielles.
 
+# Pharmacie
